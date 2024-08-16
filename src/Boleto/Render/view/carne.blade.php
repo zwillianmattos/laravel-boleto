@@ -4,19 +4,9 @@
         .table-boleto .conteudo {
             height: 11px;
         }
-
-        .barcode {
-            height: 45px !important;
-        }
-
-        .logocontainer {
-            width: 253px !important
-        }
-
-        .logobanco img {
-            max-height: 30px !important;
-            height: 30px !important;
-        }
+        .barcode{height:45px!important;}
+        .logocontainer{width:253px!important}
+        .logobanco img{max-height: 30px!important;height: 30px!important;}
     </style>
     @foreach($boletos as $i => $boleto)
         @php extract($boleto, EXTR_OVERWRITE); @endphp
@@ -24,10 +14,8 @@
             <div style="float: left; margin-top: 0px; margin-right: 5px;">
                 @if (isset($logo))
                     <div style="display: inline-block; width: 160px; text-align: center">
-                        <img style=" margin: auto 0; width: 80px; float: left; border-right: 2px solid #000; padding-right: 3px;"
-                             alt="logo" src="{{ $logo_banco_base64 }}"/>
-                        <div class="codbanco"
-                             style="font: 300 20px Arial; float: left; margin-left: 3px;">{{ $codigo_banco_com_dv }}</div>
+                        <img style=" margin: auto 0; width: 80px; float: left; border-right: 2px solid #000; padding-right: 3px;" alt="logo" src="{{ $logo_banco_base64 }}" />
+                        <div class="codbanco" style="font: 300 20px Arial; float: left; margin-left: 3px;">{{ $codigo_banco_com_dv }}</div>
                     </div>
                 @endif
 
@@ -124,12 +112,12 @@
                 </table>
                 <span class="header">Recibo do Sacado</span>
             </div>
-            <div style="display: flex; align-items: justify-content; margin-left: 5px; max-height: 100px;">
+            <div style="float:right; display: flex; align-items: justify-content; margin-left: 5px; max-height: 800px; max-width: 740px;">
                 <!-- Ficha de compensação -->
                 @include('BoletoHtmlRender::partials/ficha-compensacao')
             </div>
             <div style="clear: both"></div>
-            <div class="linha-pontilhada" style="margin-top: 10px;">Corte na linha pontilhada</div>
+            <div class="linha-pontilhada">Corte na linha pontilhada</div>
         </div>
 
         @if(count($boletos) > 3 && $i > 0 && ($i+1) % 3 === 0)
